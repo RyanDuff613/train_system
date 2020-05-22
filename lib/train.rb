@@ -47,7 +47,7 @@ class Train
       city_name = attributes.fetch(:city_name)
       city = DB.exec("SELECT * FROM cities WHERE lower(name) = '#{city_name.downcase}';").first  
       if city != nil
-        DB.exec("INSERT INTO stops(train_id, city_id) VALUES (#{city['id'].to_i}, #{@id});")
+        DB.exec("INSERT INTO stops(city_id, train_id) VALUES (#{city['id'].to_i}, #{@id});")
       end
     end
   end

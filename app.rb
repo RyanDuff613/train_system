@@ -46,6 +46,7 @@ end
 patch('/trains/:id') do
   @train = Train.find(params[:id].to_i())
   @train.update({:name => params[:train_name]})
+  @train.update({:city_name => params[:city_name]})
   @trains = Train.all()
   @cities = City.all()
   erb(:homepage)
